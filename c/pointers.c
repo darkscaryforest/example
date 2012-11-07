@@ -4,6 +4,13 @@
 
 #define BUF_SIZE 500
 
+void swapfunc(int *a, int *b);
+
+typedef struct {
+	int elem1;
+	char *elem2;
+} tstruct;
+
 int main() {
 	printf("This program is all about pointers.\n");
 	// Memory is allocated on the stack here for stro
@@ -12,8 +19,11 @@ int main() {
 	printf("1. stro is: %s\n", stro);
 
 	// This character pointer is assigned the address of stro.
+	// The star is used to indicate a pointer on declaration..but elsewhere used to dereference the pointer
 	char *j = stro;
 	printf("2. j points to stro: %s\n", j);
+
+	// NOTE THAT %S WAS USED FOR BOTH THE CHAR[] AND CHAR *
 
 	// This declares and initializes a pointer to a string literal. No manual memory allocation was needed.
 	// However, the memory located at strp is not modifiable since it is a string literal
@@ -25,13 +35,35 @@ int main() {
 	int k = 9;
 	// Declare and initialize l to point to the address of k
 	int *l = &k;
+	// initializing separate from declaration SAME THING AS LINE ABOVE
+	l = &k;
 	printf("4. k is %d and l that points to is %d\n", k, *l);
 
 	// Observed programming practice: ONLY USE MALLOC WHEN YOU HAVE TO
 	int *m = malloc(sizeof(int));
 	*m = 10;
 	printf("5. m is integer pointer assigned memory with malloc: %d\n", *m);
+
+	int a = 3;
+	printf("6. Passing a = %d and m = %d into swap function. ", a, *m);
+	// Pass in our params: a's address and the pointer m
+	swapfunc(&a, m);
+	printf("After swap a = %d and m = %d\n", a, *m);
 	// Free memory!!
 	free(m);
-	
+
+	tstruct tests = { 4, "testy"};
+	tstruct *t = &tests;
+	printf("7. A pointer to a struct uses arrows to access members: %d and %s\n", t->elem1, t->elem2);	
+}
+
+// Classic swap function
+void swapfunc(int *a, int *b)
+{
+	// Save the value that a is pointing to in temp var
+	int temp = *a;
+	// Put the value that b points to as the value that a points to
+	*a = *b;
+	// Set the value that b points to as temp
+	*b = temp;
 }
