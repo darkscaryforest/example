@@ -1,6 +1,7 @@
 all: yourprogram
 
 # .o files are implicit rule, but here I state it as a target EXPLICITLY
+# This is technically not needed, but I can control things like compiler to use and options
 printfunc.o:
 	gcc -c printfunc.c -o printfunc.o
 
