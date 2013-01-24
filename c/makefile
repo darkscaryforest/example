@@ -1,4 +1,4 @@
-all: parsefile bitwise pointers printf
+all: parsefile bitwise pointers strings printf
 
 parsefile: parsefile.o
 	gcc parsefile.o -o parsefile
@@ -18,6 +18,12 @@ pointers: pointers.o
 pointers.o: pointers.c
 	gcc -c pointers.c
 
+strings: strings.o
+	gcc strings.o -o strings
+
+strings.o: strings.c
+	gcc -c strings.c
+
 printf: printf.o
 	gcc printf.o -o printf
 
@@ -25,4 +31,4 @@ printf.o: printf.c
 	gcc -c printf.c
 
 clean:
-	rm -f *.o parsefile bitwise pointers printf
+	rm -f *.o parsefile bitwise pointers strings printf

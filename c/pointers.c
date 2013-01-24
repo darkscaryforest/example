@@ -30,6 +30,7 @@ int main() {
 
 	// This declares and initializes a pointer to a string literal. No manual memory allocation was needed.
 	// However, the memory located at strp is not modifiable since it is a string literal
+	// Note that a null terminator '\0' was automatically put at the end of this string literal
 	char *strp = "This is unmodifiable string";
 	printf("3. strp: %s\n", strp);
 
