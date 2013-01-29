@@ -1,4 +1,4 @@
-all: parsefile bitwise pointers strings printf
+all: parsefile bitwise pointers strings printf hex_tofrom_str
 
 parsefile: parsefile.o
 	gcc parsefile.o -o parsefile
@@ -30,5 +30,12 @@ printf: printf.o
 printf.o: printf.c
 	gcc -c printf.c
 
+# Needs the math library (m), specified by -lm
+hex_tofrom_str: hex_tofrom_str.o
+	gcc hex_tofrom_str.o -o hex_tofrom_str -lm
+
+hex_tofrom_str.o: hex_tofrom_str.c
+	gcc -c hex_tofrom_str.c
+
 clean:
-	rm -f *.o parsefile bitwise pointers strings printf
+	rm -f *.o parsefile bitwise pointers strings printf hex_tofrom_str
