@@ -23,12 +23,17 @@ else:
 	print "We didn't match the string somehow ERROR"
 
 testListStr = ['first str', 'second str', 'third str', 'last str']
-print "3. For statment iterates over on a list. Note: Can't do traditional C for loop"
+print "3. For statment iterates over on a list."
 
 for test in testListStr:
 	print "-" + test
 
+print "4. For loop that iterates over a range, in this case it is up until the length of the testListStr array." \
+	" Note: Not traditional C for loop syntax"
+for i in range(len(testListStr)):
+	print str(i) + " is " + testListStr[i]
+
 a = 0
-print "4. Statement that doesn't nothing: pass keyword"
+print "5. Statement that doesn't nothing: pass keyword"
 if(a == 0):
 	pass
