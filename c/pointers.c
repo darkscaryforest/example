@@ -68,6 +68,11 @@ int main() {
 	// Pass address of the pointer
 	pointerToPointer(&y);
 	printf("   The function changed this to the 4th letter %c since we passed the pointer's address.\n", *y);
+
+	// Some disambuguation
+	int* arr1[8]; // An array of int pointers
+	int (*arr2)[8]; // A pointer to an array of integers
+	int *(arr3[8]); // An array of int pointers
 	
 }
 
