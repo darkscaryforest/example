@@ -16,6 +16,12 @@ print "2. Putting the rest of entire file in a list delimited by newlines:"
 strlist = newFile.readlines()
 print strlist
 
+newFile.seek(0)
+
+print "3. We have rewound the file. We can read the whole file with one call to read:"
+str = newFile.read()
+print str
+
 newFile.close()
 
 print "3. Getting the file creation time (nicely formatted) of " + FILENAME + ":"
