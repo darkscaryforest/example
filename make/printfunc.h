@@ -1,0 +1,2 @@
+void printhi();
+void printchocolate();
