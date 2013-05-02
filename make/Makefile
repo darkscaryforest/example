@@ -1,4 +1,19 @@
+THINGS=printfunc.o library.a yourprogram
+
 all: yourprogram
+
+# NOTE: You can't print things anywhere!  Use echo keyword under a target to print things!
+
+# You can do for loops like so, spacing
+# and the use of the \ operator important! a for loop
+# must be interpreted as one command with the \s.
+# The $? operator will use ALL dependencies listed regardless
+# of how new they are compared to the target (which isn't even
+# a file)
+printTargets: $(THINGS)
+	echo "Here are some targets in the file:"
+	for i in $^; \
+	do echo " $$i "; done
 
 # .o files are implicit rule, but here I state it as a target EXPLICITLY
 # This is technically not needed, but I can control things like compiler to use and options
