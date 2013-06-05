@@ -1,5 +1,5 @@
 CC=gcc
-BINARIES=parsefile bitwise pointers strings printf hex_tofrom_str random signal
+BINARIES=parsefile bitwise pointers strings printf hex_tofrom_str random signal server
 CLEANEES=$(BINARIES)
 
 all: $(BINARIES)
@@ -41,6 +41,12 @@ random: random.o
 
 random.o: random.c
 	$(CC) -c random.c
+
+server: server.o
+	$(CC) $? -o $@
+
+server.o: server.c
+	$(CC) -c server.c
 
 # For the sake of example, the target for signal.c actually isn't needed 
 # since .o files are an extension that applies for implicit rules!
