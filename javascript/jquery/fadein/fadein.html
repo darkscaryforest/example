@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../jquery.js"></script>
+<script>
+
+function initFade() {
+	isFaded = false;
+	interval = setInterval(function(){fadeFunc()}, 1000);
+}
+
+function fadeFunc() {
+	if(isFaded) {
+		isFaded = false;
+		$(function() {
+			$("blah").fadeIn();
+		});
+	} else {
+		isFaded = true;
+		$(function() {
+			$("blah").fadeOut();
+		});
+	}
+}
+
+function stopFading() {
+        clearInterval(interval);
+}
+
+</script>
+</head>
+<body onload="initFade()">
+
+<blah>Fade</blah>
+<br/>
+<button onclick="stopFading()">Stop Fading</button>
+
+</body>
+</html>

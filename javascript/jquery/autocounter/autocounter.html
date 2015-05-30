@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../jquery.js"></script>
+<script>
+var myVar = setInterval(function(){myTimer()}, 1000);
+function myTimer() {
+    var d = new Date();
+    var t = d.toLocaleTimeString();
+    document.getElementById("Counter").innerHTML = t;
+}
+</script>
+</head>
+<body>
+
+<h2>Autocounter</h2>
+
+<p id="Counter">0</p>
+
+
+</body>
+</html>
